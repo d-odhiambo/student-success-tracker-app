@@ -1,35 +1,85 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Dashboard from './Components/Dashboard';
+import StudentList from './Components/Students/StudentList';
+import AddStudentForm from './Components/Students/AddStudentForm';
+import AssignmentList from './Components/Assignments/AssignmentList';
+import { STUDENTS_URL, ASSIGNMENTS_URL, jsonFetch } from './api';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [students, setStudents] = useState([]);
+  const [assignments, setAssignments] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const [s, a] = await Promise.all([jsonFetch(STUDENTS_URL), jsonFetch(ASSIGNMENTS_URL)]);
+        setStudents(s);
+        setAssignments(a);
+      } catch (e) {
+        console.error('Failed to load initial data', e);
+      }
+    })();
+  }, []);
+
+  // STUDENT CRUD
+  async function addStudent(studentData) {
+    const newStudent = await jsonFetch(STUDENTS_URL, { method: 'POST', body: JSON.stringify(studentData) });
+    setStudents(prev => [...prev, newStudent]); // required: update from returned JSON
+  }
+
+  async function updateStudent(id, updates) {
+    const updated = await jsonFetch(`${STUDENTS_URL}/${id}`, { method: 'PATCH', body: JSON.stringify(updates) });
+    setStudents(prev => prev.map(s => (s.id === id ? updated : s)));
+  }
+
+  async function deleteStudent(id) {
+    await jsonFetch(`${STUDENTS_URL}/${id}`, { method: 'DELETE' });
+    setStudents(prev => prev.filter(s => s.id !== id));
+  }
+
+  // ASSIGNMENT CRUD + submissions
+  async function addAssignment(assignData) {
+    const newAssign = await jsonFetch(ASSIGNMENTS_URL, { method: 'POST', body: JSON.stringify(assignData) });
+    setAssignments(prev => [...prev, newAssign]);
+  }
+
+  async function updateAssignment(id, updates) {
+    const patched = await jsonFetch(`${ASSIGNMENTS_URL}/${id}`, { method: 'PATCH', body: JSON.stringify(updates) });
+    setAssignments(prev => prev.map(a => (a.id === id ? patched : a)));
+  }
+
+  async function deleteAssignment(id) {
+    await jsonFetch(`${ASSIGNMENTS_URL}/${id}`, { method: 'DELETE' });
+    setAssignments(prev => prev.filter(a => a.id !== id));
+  }
+
+  async function submitAssignment(assignmentId, submission) {
+    // read current assignment, append submission, patch
+    const assignment = await jsonFetch(`${ASSIGNMENTS_URL}/${assignmentId}`);
+    const updatedSubmissions = [...(assignment.submissions || []), submission];
+    const patched = await jsonFetch(`${ASSIGNMENTS_URL}/${assignmentId}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ submissions: updatedSubmissions })
+    });
+    setAssignments(prev => prev.map(a => (a.id === assignmentId ? patched : a)));
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <Navbar />
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/dashboard" element={<Dashboard students={students} assignments={assignments} />} />
+          <Route path="/students" element={<StudentList students={students} updateStudent={updateStudent} deleteStudent={deleteStudent} />} />
+          <Route path="/students/add" element={<AddStudentForm addStudent={addStudent} />} />
+          <Route path="/assignments" element={<AssignmentList assignments={assignments} addAssignment={addAssignment} submitAssignment={submitAssignment} updateAssignment={updateAssignment} deleteAssignment={deleteAssignment} students={students} />} />
+        </Routes>
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
