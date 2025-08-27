@@ -1,0 +1,122 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "Dancan Odhiambo",
+      "attendancePercent": 92,
+      "accountabilityScore": 88
+    },
+    {
+      "id": "2",
+      "name": "George Mukoshi",
+      "attendancePercent": 78,
+      "accountabilityScore": 64
+    },
+    {
+      "id": "3",
+      "name": "Zophar Nyakundi",
+      "attendancePercent": 85,
+      "accountabilityScore": 74
+    },
+    {
+      "id": "4",
+      "name": "Nancy Adelice",
+      "attendancePercent": 67,
+      "accountabilityScore": 55
+    },
+    {
+      "id": "5",
+      "name": "Beatrice Wambui",
+      "attendancePercent": 95,
+      "accountabilityScore": 92
+    },
+    {
+      "id": "6",
+      "name": "Mohamed Ahmed",
+      "attendancePercent": 81,
+      "accountabilityScore": 70
+    },
+    {
+      "id": "7",
+      "name": "Brian Mwema",
+      "attendancePercent": 88,
+      "accountabilityScore": 79
+    },
+    {
+      "id": "8",
+      "name": "Praxedes Kabeya",
+      "attendancePercent": 73,
+      "accountabilityScore": 60
+    },
+    {
+      "id": "9",
+      "name": "Rebecca Kibisu",
+      "attendancePercent": 90,
+      "accountabilityScore": 85
+    },
+    {
+      "id": "10",
+      "name": "Victorious Ngaruiya",
+      "attendancePercent": 76,
+      "accountabilityScore": 68
+    },
+    {
+      "id": "11",
+      "name": "Austine Ochieng",
+      "attendancePercent": 98,
+      "accountabilityScore": 95
+    },
+    {
+      "id": "12",
+      "name": "Suleiman Ali",
+      "attendancePercent": 69,
+      "accountabilityScore": 58
+    },
+    {
+      "id": "13",
+      "name": "Anne Ngugi",
+      "attendancePercent": 84,
+      "accountabilityScore": 76
+    },
+    {
+      "id": "14",
+      "name": "Laban Ochieng",
+      "attendancePercent": 80,
+      "accountabilityScore": 71
+    },
+    {
+      "id": "15",
+      "name": "Benard Ochuka",
+      "attendancePercent": 87,
+      "accountabilityScore": 82
+    },
+    {
+      "id": "16",
+      "name": "Amie Anicette",
+      "attendancePercent": 93,
+      "accountabilityScore": 87
+    }
+  ],
+  "assignments": [
+    {
+      "id": "1",
+      "title": "React Lab 1",
+      "dueDate": "2025-09-05",
+      "points": 10,
+      "submissions": [
+        {
+          "studentId": 1,
+          "status": "on-time"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Code Challenge 1",
+      "dueDate": "2025-09-10",
+      "points": 15,
+      "submissions": []
+    }
+  ],
+  "submissions": []
+}
