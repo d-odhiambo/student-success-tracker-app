@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AssignmentCard = ({Assignment}) => {
+const AssignmentCard = ({assignment}) => {
   return (
     <div>
       <li className="assignment-card">
