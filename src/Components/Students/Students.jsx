@@ -1,15 +1,20 @@
-import React from "react";
-import StudentList from "./StudentList"; // 👈 import StudentList
+import React, { useState } from "react";
+import AddStudentForm from "./AddStudentForm";
+import StudentList from "./StudentList";
 
 function Students() {
-  return (
-    <div>
-      <h2>Student Tracker</h2>
-      <p>This page will display all students and their progress.</p>
+  const [students, setStudents] = useState([]);
 
-      {/* Show the list of students */}
-      <StudentList />
-    </div>
+  function handleAddStudent(newStudent) {
+    setStudents((prev) => [...prev, newStudent]);
+  }
+
+  return (
+    <section>
+      <h2>Students</h2>
+      <AddStudentForm onAddStudent={handleAddStudent} />
+      <StudentList students={students} />
+    </section>
   );
 }
 

@@ -1,16 +1,16 @@
 import React from "react";
+import StudentCard from "./StudentCard";
 
-function StudentList() {
-  const students = ["Alice", "Brian", "Cynthia"];
+function StudentList({ students }) {
+  if (!students || students.length === 0) {
+    return 
+  }
 
   return (
     <div>
-      <h3>Student List</h3>
-      <ul>
-        {students.map((student, index) => (
-          <li key={index}>{student}</li>
-        ))}
-      </ul>
+      {students.map((student) => (
+        <StudentCard key={student.id} student={student} />
+      ))}
     </div>
   );
 }
