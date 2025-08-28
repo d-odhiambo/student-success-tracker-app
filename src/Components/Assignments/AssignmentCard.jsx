@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 
 const AssignmentCard = ({ assignment, updateAssignment, deleteAssignment }) => {
-  
+
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(assignment.title);
 
@@ -11,7 +11,6 @@ const AssignmentCard = ({ assignment, updateAssignment, deleteAssignment }) => {
   }
 
   return (
-    return (
       <li>
         {isEditing ? (
           <>
