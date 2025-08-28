@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import AssignmentCard from "./AssignmentCard" ;
-import SubmissionForm from ".SubmissionForm"
+import SubmissionForm from "./SubmissionForm"
 
 const AssignmentList = ({
   assignments,
@@ -12,7 +12,7 @@ const AssignmentList = ({
 }) => {
   
   return (
-    
+
     <div>
        <h2>Assignments</h2>
       {/* Add Assignment Form (simple inline for now) */}
