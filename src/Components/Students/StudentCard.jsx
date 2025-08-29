@@ -1,7 +1,11 @@
 import React from "react";
 
-function StudentCard() {
-  return <div>Student Card works!</div>;
+function StudentCard({ student }) {
+  return (
+    <div>
+      <p>{student.name}</p>
+    </div>
+  );
 }
 
 export default StudentCard;
