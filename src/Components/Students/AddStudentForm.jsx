@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 
-function AddStudentForm() {
+function AddStudentForm({ addStudent }) {
   const [name, setName] = useState("");
   const [grade, setGrade] = useState("");
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!name || !grade) return;
+
+    addStudent({ name, grade });
+    setName("");
+    setGrade("");
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h3>Add Student</h3>
       <input
         type="text"
