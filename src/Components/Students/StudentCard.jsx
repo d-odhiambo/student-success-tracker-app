@@ -2,8 +2,9 @@ import React from "react";
 
 function StudentCard({ student }) {
   return (
-    <div>
-      <p>{student.name}</p>
+    <div className="student-card">
+      <h3>{student.name}</h3>
+      <p>Grade: {student.grade}</p>
     </div>
   );
 }
