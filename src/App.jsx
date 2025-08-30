@@ -6,6 +6,7 @@ import StudentList from './Components/Students/StudentList';
 import AddStudentForm from './Components/Students/AddStudentForm';
 import AssignmentList from './Components/Assignments/AssignmentList';
 import { STUDENTS_URL, ASSIGNMENTS_URL, jsonFetch } from './api';
+import "./App.css"
 
 function App() {
   const [students, setStudents] = useState([]);

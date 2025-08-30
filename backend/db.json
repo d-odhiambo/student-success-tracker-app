@@ -95,6 +95,11 @@
       "name": "Amie Anicette",
       "attendancePercent": 93,
       "accountabilityScore": 87
+    },
+    {
+      "id": "8b25",
+      "name": "Jimmy",
+      "grade": "50"
     }
   ],
   "assignments": [
@@ -115,6 +120,13 @@
       "title": "Code Challenge 1",
       "dueDate": "2025-09-10",
       "points": 15,
+      "submissions": []
+    },
+    {
+      "id": "fcf6",
+      "title": "Code Challenge 2",
+      "dueDate": "2025-08-30",
+      "points": 10,
       "submissions": []
     }
   ],

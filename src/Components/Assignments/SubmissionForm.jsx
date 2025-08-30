@@ -1,64 +1,47 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 
-const SubmissionForm = ({ assignments, students, submitAssignment }) => {
-
+function SubmissionForm({ students, assignments, submitAssignment }) {
   const [studentId, setStudentId] = useState("");
   const [assignmentId, setAssignmentId] = useState("");
   const [status, setStatus] = useState("on-time");
 
-  async function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      await submitAssignment(Number(assignmentId), {
-        studentId: Number(studentId),
-        status,
-      });
-      setStudentId("");
-      setAssignmentId("");
-      setStatus("on-time");
-    } catch (err) {
-      alert("Failed to submit: " + err.message);
-    }
-  }
+    if (!studentId || !assignmentId) return;
+    submitAssignment(assignmentId, { studentId, status });
+    setStudentId("");
+    setAssignmentId("");
+    setStatus("on-time");
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="submission-form">
       <h3>Submit Assignment</h3>
-      <select
-        value={studentId}
-        onChange={(e) => setStudentId(e.target.value)}
-        required
-      >
-        <option value="">Select Student</option>
-        {students.map((s) => (
-          <option key={s.id} value={s.id}>
-            {s.name}
-          </option>
-        ))}
-      </select>
+      <form onSubmit={handleSubmit}>
+        <select value={studentId} onChange={(e) => setStudentId(e.target.value)}>
+          <option value="">Select Student</option>
+          {students.map((s) => (
+            <option key={s.id} value={s.id}>{s.name}</option>
+          ))}
+        </select>
 
-      <select
-        value={assignmentId}
-        onChange={(e) => setAssignmentId(e.target.value)}
-        required
-      >
-        <option value="">Select Assignment</option>
-        {assignments.map((a) => (
-          <option key={a.id} value={a.id}>
-            {a.title}
-          </option>
-        ))}
-      </select>
+        <select value={assignmentId} onChange={(e) => setAssignmentId(e.target.value)}>
+          <option value="">Select Assignment</option>
+          {assignments.map((a) => (
+            <option key={a.id} value={a.id}>{a.title}</option>
+          ))}
+        </select>
 
-      <select value={status} onChange={(e) => setStatus(e.target.value)}>
-        <option value="on-time">On-time</option>
-        <option value="late">Late</option>
-        <option value="missing">Missing</option>
-      </select>
+        <select value={status} onChange={(e) => setStatus(e.target.value)}>
+          <option value="on-time">On-time</option>
+          <option value="late">Late</option>
+          <option value="missing">Missing</option>
+        </select>
 
-      <button type="submit">Submit</button>
-    </form>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 }
- 
 
-export default SubmissionForm
+export default SubmissionForm;

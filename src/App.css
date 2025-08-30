@@ -40,3 +40,60 @@
 .read-the-docs {
   color: #888;
 }
+.assignment-list {
+  margin: 20px 0;
+}
+
+.add-assignment-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.assignments-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.assignment-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.assignment-card h3 {
+  margin-top: 0;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.delete-btn {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submission-form {
+  margin-top: 30px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f9f9f9;
+}
+
+.submission-form form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
