@@ -6,6 +6,8 @@ import StudentList from './Components/Students/StudentList';
 import AddStudentForm from './Components/Students/AddStudentForm';
 import AssignmentList from './Components/Assignments/AssignmentList';
 import { STUDENTS_URL, ASSIGNMENTS_URL, jsonFetch } from './api';
+import "./App.css"
+import SubmissionForm from "./Components/Assignments/SubmissionForm"
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -23,10 +25,10 @@ function App() {
     })();
   }, []);
 
-  // STUDENT CRUD
+  
   async function addStudent(studentData) {
     const newStudent = await jsonFetch(STUDENTS_URL, { method: 'POST', body: JSON.stringify(studentData) });
-    setStudents(prev => [...prev, newStudent]); // required: update from returned JSON
+    setStudents(prev => [...prev, newStudent]);
   }
 
   async function updateStudent(id, updates) {
@@ -39,7 +41,7 @@ function App() {
     setStudents(prev => prev.filter(s => s.id !== id));
   }
 
-  // ASSIGNMENT CRUD + submissions
+  
   async function addAssignment(assignData) {
     const newAssign = await jsonFetch(ASSIGNMENTS_URL, { method: 'POST', body: JSON.stringify(assignData) });
     setAssignments(prev => [...prev, newAssign]);
@@ -56,7 +58,7 @@ function App() {
   }
 
   async function submitAssignment(assignmentId, submission) {
-    // read current assignment, append submission, patch
+    
     const assignment = await jsonFetch(`${ASSIGNMENTS_URL}/${assignmentId}`);
     const updatedSubmissions = [...(assignment.submissions || []), submission];
     const patched = await jsonFetch(`${ASSIGNMENTS_URL}/${assignmentId}`, {
@@ -76,6 +78,19 @@ function App() {
           <Route path="/students" element={<StudentList students={students} updateStudent={updateStudent} deleteStudent={deleteStudent} />} />
           <Route path="/students/add" element={<AddStudentForm addStudent={addStudent} />} />
           <Route path="/assignments" element={<AssignmentList assignments={assignments} addAssignment={addAssignment} submitAssignment={submitAssignment} updateAssignment={updateAssignment} deleteAssignment={deleteAssignment} students={students} />} />
+          <Route 
+            path="/submit-assignment" 
+            element={
+              <div>
+                <h2>Submit Assignment</h2>
+                <SubmissionForm 
+                  assignments={assignments} 
+                  students={students} 
+                  submitAssignment={submitAssignment} 
+                />
+              </div>
+            } 
+          />
         </Routes>
       </main>
     </div>
