@@ -97,9 +97,9 @@
       "accountabilityScore": 87
     },
     {
-      "id": "7b81",
-      "name": "Eric Ochiel",
-      "grade": "90%"
+      "id": "1572",
+      "name": "Shillah Amenya",
+      "grade": "B+"
     }
   ],
   "assignments": [
@@ -120,18 +120,6 @@
       "title": "Code Challenge 1",
       "dueDate": "2025-09-10",
       "points": 15,
-      "submissions": [
-        {
-          "studentId": "2",
-          "status": "on-time"
-        }
-      ]
-    },
-    {
-      "id": "b7b2",
-      "title": "Code Challenge 2",
-      "dueDate": "2025-08-30",
-      "points": 10,
       "submissions": []
     }
   ],
