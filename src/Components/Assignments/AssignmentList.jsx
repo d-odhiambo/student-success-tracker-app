@@ -1,52 +1,64 @@
-import React,{useEffect,useState} from 'react'
-import AssignmentCard from "./AssignmentCard" ;
-import SubmissionForm from "./SubmissionForm"
+import React, { useState } from "react";
+import AssignmentCard from "./AssignmentCard";
+import SubmissionForm from "./SubmissionForm";
 
-const AssignmentList = ({
+function AssignmentList({
   assignments,
-  students,
   addAssignment,
   updateAssignment,
   deleteAssignment,
   submitAssignment,
-}) => {
-  
-  return (
+  students,
+}) {
+  const [title, setTitle] = useState("");
 
-    <div>
-       <h2>Assignments</h2>
-      {/* Add Assignment Form (simple inline for now) */}
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          const title = e.target.title.value;
-          if (!title) return;
-          addAssignment({ title, submissions: [] });
-          e.target.reset();
-        }}
-      >
-        <input name="title" placeholder="Assignment Title" required />
+  const handleAdd = (e) => {
+    e.preventDefault();
+    if (!title.trim()) return;
+    addAssignment({
+      title,
+      dueDate: new Date().toISOString().split("T")[0],
+      points: 10,
+      submissions: [],
+    });
+    setTitle("");
+  };
+
+  return (
+    <div className="assignment-list">
+      <h2>Assignments</h2>
+
+      {/* Add Assignment */}
+      <form onSubmit={handleAdd} className="add-assignment-form">
+        <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Assignment Title"
+        />
         <button type="submit">Add</button>
       </form>
 
-      <ul>
+      {/* Assignment Cards */}
+      <div className="assignments-grid">
         {assignments.map((a) => (
           <AssignmentCard
             key={a.id}
             assignment={a}
+            students={students}
             updateAssignment={updateAssignment}
             deleteAssignment={deleteAssignment}
           />
         ))}
-      </ul>
+      </div>
 
+      {/* Submit Assignment Form */}
       <SubmissionForm
-        assignments={assignments}
         students={students}
+        assignments={assignments}
         submitAssignment={submitAssignment}
-      />      
+      />
     </div>
-  )
+  );
 }
 
-export default AssignmentList
+export default AssignmentList;

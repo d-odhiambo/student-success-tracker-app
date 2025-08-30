@@ -95,12 +95,17 @@
       "name": "Amie Anicette",
       "attendancePercent": 93,
       "accountabilityScore": 87
+    },
+    {
+      "id": "8b25",
+      "name": "Jimmy",
+      "grade": "50"
     }
   ],
   "assignments": [
     {
       "id": "1",
-      "title": "React Lab 1",
+      "title": "React app",
       "dueDate": "2025-09-05",
       "points": 10,
       "submissions": [
@@ -116,6 +121,26 @@
       "dueDate": "2025-09-10",
       "points": 15,
       "submissions": []
+    },
+    {
+      "id": "fcf6",
+      "title": "Code Challenge 2",
+      "dueDate": "2025-08-30",
+      "points": 10,
+      "submissions": []
+    },
+    {
+      "id": "33fd",
+      "title": "Phase 2 Project",
+      "dueDate": "2025-08-30",
+      "points": 10,
+      "submissions": [
+        {
+          "studentId": "2",
+          "status": "on-time",
+          "submittedAt": "2025-08-30T05:52:32.562Z"
+        }
+      ]
     }
   ],
   "submissions": []

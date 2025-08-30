@@ -1,44 +1,54 @@
-import React,{useState} from 'react'
+import React from "react";
 
-const AssignmentCard = ({ assignment, updateAssignment, deleteAssignment }) => {
+function AssignmentCard({ assignment, students, updateAssignment, deleteAssignment }) {
+  // Function to get student name by ID
+  const getStudentName = (studentId) => {
+    const student = students.find(s => s.id === studentId.toString());
+    return student ? student.name : `Student #${studentId}`;
+  };
 
-  const [isEditing, setIsEditing] = useState(false);
-  const [title, setTitle] = useState(assignment.title);
-
-  async function handleSave() {
-    await updateAssignment(assignment.id, { title });
-    setIsEditing(false);
-  }
+  // Function to get student avatar initial
+  const getStudentAvatar = (studentId) => {
+    const student = students.find(s => s.id === studentId.toString());
+    return student ? student.name.charAt(0) : "?";
+  };
 
   return (
-      <li>
-        {isEditing ? (
-          <>
-            <input value={title} onChange={(e) => setTitle(e.target.value)} />
-            <button onClick={handleSave}>Save</button>
-            <button onClick={() => setIsEditing(false)}>Cancel</button>
-          </>
-        ) : (
-          <>
-            <span>{assignment.title}</span>
-            <button onClick={() => setIsEditing(true)}>Edit</button>
-            <button onClick={() => deleteAssignment(assignment.id)}>Delete</button>
-          </>
-        )}
-  
-        {/* Show submissions if any */}
-        {assignment.submissions?.length > 0 && (
+    <div className="assignment-card">
+      <h3>{assignment.title}</h3>
+      <p>
+        <strong>Due:</strong> {assignment.dueDate} | <strong>Points:</strong> {assignment.points}
+      </p>
+
+      <div className="submissions">
+        <h4>Submissions:</h4>
+        {assignment.submissions?.length > 0 ? (
           <ul>
             {assignment.submissions.map((sub, i) => (
-              <li key={i}>
-                Student #{sub.studentId} — {sub.status}
+              <li key={i} className="submission-item">
+                <div className="student-info">
+                  <div className="student-avatar">
+                    {getStudentAvatar(sub.studentId)}
+                  </div>
+                  <span>{getStudentName(sub.studentId)}</span>
+                </div>
+                <span className={`status ${sub.status}`}>{sub.status}</span>
               </li>
             ))}
           </ul>
+        ) : (
+          <p className="no-submissions">No submissions yet</p>
         )}
-      </li>
-    );
-  }
-  
+      </div>
+
+      <div className="actions">
+        <button onClick={() => updateAssignment(assignment.id, { title: prompt("New title", assignment.title) })}>
+          Edit
+        </button>
+        <button className="delete-btn" onClick={() => deleteAssignment(assignment.id)}>Delete</button>
+      </div>
+    </div>
+  );
+}
 
 export default AssignmentCard;
