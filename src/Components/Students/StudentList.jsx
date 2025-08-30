@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import StudentCard from "./StudentCard";
 
-function StudentList() {
-  const [students, setStudents] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3001/students")
-      .then((res) => res.json())
-      .then((data) => setStudents(data))
-      .catch((err) => console.error("Error fetching students:", err));
-  }, []);
+function StudentList({ students }) {
+  if (!students || students.length === 0) {
+    return <p>No students found.</p>;
+  }
 
   return (
     <div>
-      <h2>Students</h2>
       {students.map((student) => (
         <StudentCard key={student.id} student={student} />
       ))}
