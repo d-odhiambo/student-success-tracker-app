@@ -97,15 +97,15 @@
       "accountabilityScore": 87
     },
     {
-      "id": "8b25",
-      "name": "Jimmy",
-      "grade": "50"
+      "id": "7b81",
+      "name": "Eric Ochiel",
+      "grade": "90%"
     }
   ],
   "assignments": [
     {
       "id": "1",
-      "title": "React app",
+      "title": "React Lab 1",
       "dueDate": "2025-09-05",
       "points": 10,
       "submissions": [
@@ -120,27 +120,19 @@
       "title": "Code Challenge 1",
       "dueDate": "2025-09-10",
       "points": 15,
-      "submissions": []
+      "submissions": [
+        {
+          "studentId": "2",
+          "status": "on-time"
+        }
+      ]
     },
     {
-      "id": "fcf6",
+      "id": "b7b2",
       "title": "Code Challenge 2",
       "dueDate": "2025-08-30",
       "points": 10,
       "submissions": []
-    },
-    {
-      "id": "33fd",
-      "title": "Phase 2 Project",
-      "dueDate": "2025-08-30",
-      "points": 10,
-      "submissions": [
-        {
-          "studentId": "2",
-          "status": "on-time",
-          "submittedAt": "2025-08-30T05:52:32.562Z"
-        }
-      ]
     }
   ],
   "submissions": []
