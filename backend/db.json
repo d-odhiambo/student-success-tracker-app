@@ -95,6 +95,11 @@
       "name": "Amie Anicette",
       "attendancePercent": 93,
       "accountabilityScore": 87
+    },
+    {
+      "id": "1572",
+      "name": "Shillah Amenya",
+      "grade": "B+"
     }
   ],
   "assignments": [
