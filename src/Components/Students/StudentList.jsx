@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import StudentCard from "./StudentCard";
+import "./Students.css";
 
-function StudentList() {
-  const [students, setStudents] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3001/students")
-      .then((res) => res.json())
-      .then((data) => setStudents(data))
-      .catch((err) => console.error("Error fetching students:", err));
-  }, []);
-
+function StudentList({ students, onDelete }) {
   return (
-    <div>
-      <h2>Students</h2>
-      {students.map((student) => (
-        <StudentCard key={student.id} student={student} />
-      ))}
+    <div className="students-container">
+      <ul className="students-list">
+        {students.map((student, index) => (
+          <StudentCard key={index} student={student} onDelete={onDelete} />
+        ))}
+      </ul>
     </div>
   );
 }

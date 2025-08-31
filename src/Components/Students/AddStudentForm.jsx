@@ -1,21 +1,29 @@
 import React, { useState } from "react";
+import "./Students.css";
 
 function AddStudentForm({ addStudent }) {
   const [name, setName] = useState("");
-  const [grade, setGrade] = useState("");
+  const [attendancePercent, setAttendancePercent] = useState("");
+  const [accountabilityScore, setAccountabilityScore] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!name || !grade) return;
+    if (!name || !attendancePercent || !accountabilityScore) return;
 
-    addStudent({ name, grade });
+    addStudent({ 
+      name, 
+      attendancePercent: Number(attendancePercent), 
+      accountabilityScore: Number(accountabilityScore) 
+    });
+
     setName("");
-    setGrade("");
+    setAttendancePercent("");
+    setAccountabilityScore("");
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <h3>Add Student</h3>
+      {/* <h3>Add Student</h3> */}
       <input
         type="text"
         placeholder="Student Name"
@@ -23,10 +31,16 @@ function AddStudentForm({ addStudent }) {
         onChange={(e) => setName(e.target.value)}
       />
       <input
-        type="text"
-        placeholder="Grade"
-        value={grade}
-        onChange={(e) => setGrade(e.target.value)}
+        type="number"
+        placeholder="Attendance %"
+        value={attendancePercent}
+        onChange={(e) => setAttendancePercent(e.target.value)}
+      />
+      <input
+        type="number"
+        placeholder="Accountability Score %"
+        value={accountabilityScore}
+        onChange={(e) => setAccountabilityScore(e.target.value)}
       />
       <button type="submit">Add</button>
     </form>

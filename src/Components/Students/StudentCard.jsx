@@ -1,10 +1,19 @@
-function StudentCard({ student }) {
+import React from "react";
+import "./Students.css";
+
+function StudentCard({ student, onDelete }) {
   return (
-    <div className="student-card">
-      <h3>{student.name}</h3>
-      <p>Attendance: {student.attendancePercent}%</p>
-      <p>Accountability Score: {student.accountabilityScore}</p>
-    </div>
+    <li className="student-card">
+      <h3 className="student-name">{student.name}</h3>
+      <p className="student-details">Attendance: {student.attendancePercent}%</p>
+      <p className="student-details">Accountability: {student.accountabilityScore}</p>
+      <button 
+        className="delete-btn"
+        onClick={() => onDelete(student)}
+      >
+        Delete
+      </button>
+    </li>
   );
 }
 
