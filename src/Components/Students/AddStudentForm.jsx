@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Students.css";
 
 function AddStudentForm({ addStudent }) {
   const [name, setName] = useState("");
@@ -22,7 +23,7 @@ function AddStudentForm({ addStudent }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h3>Add Student</h3>
+      {/* <h3>Add Student</h3> */}
       <input
         type="text"
         placeholder="Student Name"
@@ -37,7 +38,7 @@ function AddStudentForm({ addStudent }) {
       />
       <input
         type="number"
-        placeholder="Accountability Score"
+        placeholder="Accountability Score %"
         value={accountabilityScore}
         onChange={(e) => setAccountabilityScore(e.target.value)}
       />

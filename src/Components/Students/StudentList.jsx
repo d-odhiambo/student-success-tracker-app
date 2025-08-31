@@ -1,16 +1,15 @@
 import React from "react";
 import StudentCard from "./StudentCard";
+import "./Students.css";
 
-function StudentList({ students }) {
-  if (!students || students.length === 0) {
-    return <p>No students found.</p>;
-  }
-
+function StudentList({ students, onDelete }) {
   return (
-    <div>
-      {students.map((student) => (
-        <StudentCard key={student.id} student={student} />
-      ))}
+    <div className="students-container">
+      <ul className="students-list">
+        {students.map((student, index) => (
+          <StudentCard key={index} student={student} onDelete={onDelete} />
+        ))}
+      </ul>
     </div>
   );
 }
