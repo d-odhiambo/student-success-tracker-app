@@ -1,10 +1,9 @@
-import React from "react";
-
 function StudentCard({ student }) {
   return (
     <div className="student-card">
       <h3>{student.name}</h3>
-      <p>Grade: {student.grade}</p>
+      <p>Attendance: {student.attendancePercent}%</p>
+      <p>Accountability Score: {student.accountabilityScore}</p>
     </div>
   );
 }
