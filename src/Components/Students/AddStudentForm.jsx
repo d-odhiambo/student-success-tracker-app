@@ -22,28 +22,30 @@ function AddStudentForm({ addStudent }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      {/* <h3>Add Student</h3> */}
-      <input
-        type="text"
-        placeholder="Student Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Attendance %"
-        value={attendancePercent}
-        onChange={(e) => setAttendancePercent(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Accountability Score %"
-        value={accountabilityScore}
-        onChange={(e) => setAccountabilityScore(e.target.value)}
-      />
-      <button type="submit">Add</button>
-    </form>
+    <div className="add-student-container">
+      <h2 className="form-heading">Add Student</h2>
+      <form onSubmit={handleSubmit} className="add-student-form">
+        <input
+          type="text"
+          placeholder="Student Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Attendance %"
+          value={attendancePercent}
+          onChange={(e) => setAttendancePercent(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Accountability Score %"
+          value={accountabilityScore}
+          onChange={(e) => setAccountabilityScore(e.target.value)}
+        />
+        <button type="submit">Add</button>
+      </form>
+    </div>
   );
 }
 

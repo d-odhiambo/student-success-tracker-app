@@ -36,6 +36,7 @@ function StudentCard({ student, number, onDelete, onUpdate }) {
             <p className="student-details">Attendance: {attendance}%</p>
             <p className="student-details">Accountability: {accountability}%</p>
           </>
+          
         )}
 
         <div className="buttons">
