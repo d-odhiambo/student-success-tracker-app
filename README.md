@@ -51,20 +51,21 @@ The Student Success Tracker App is a web-based tool designed for teachers to mon
 
 ### 1. Clone the Repository
 
-git clone https://github.com/your-username/student-success-tracker-app.git
+- git clone https://github.com/your-username/student-success-tracker-app.git
 cd student-success-tracker-app
 
 ### 2. Install Dependencies
-npm install
+- npm install
 
 ### 3. Start JSON Server (Backend)
-npx json-server --watch db.json --port 3001
+- npx json-server --watch db.json --port 3001
 
 ### 4. Run the React App
-npm start
+- npm start
+- npm run dev
 
 ## Usage
-- Open the app in your browser at http://localhost:3000.
+- Open the app in your browser at http://localhost:5173.
 - View the Student Dashboard for an overview.
 - Add new students via the Add Student Form.
 - Click a student to view detailed stats.

@@ -97,6 +97,7 @@
       "accountabilityScore": 87
     },
     {
+<<<<<<< HEAD
       "id": "489d",
       "name": "Brian Muena",
       "attendancePercent": 72,
@@ -113,6 +114,12 @@
       "name": "Peter Johnsons",
       "attendancePercent": 10,
       "accountabilityScore": 5
+=======
+      "id": "a630",
+      "name": "Enock Achoki",
+      "attendancePercent": 73,
+      "accountabilityScore": 78
+>>>>>>> 3754422cbdbfd12b39ef72020df9e158c9166077
     }
   ],
   "assignments": [
@@ -121,19 +128,19 @@
       "title": "React Lab 1",
       "dueDate": "2025-09-05",
       "points": 10,
-      "submissions": [
-        {
-          "studentId": 1,
-          "status": "on-time"
-        }
-      ]
+      "submissions": []
     },
     {
       "id": "2",
       "title": "Code Challenge 1",
       "dueDate": "2025-09-10",
       "points": 15,
-      "submissions": []
+      "submissions": [
+        {
+          "studentId": "13",
+          "status": "on-time"
+        }
+      ]
     },
     {
       "id": "3549",
@@ -144,6 +151,22 @@
         {
           "studentId": "2",
           "status": "on-time"
+        }
+      ]
+    },
+    {
+      "id": "3b97",
+      "title": "Phase 2 React Project",
+      "dueDate": "2025-08-31",
+      "points": 10,
+      "submissions": [
+        {
+          "studentId": "3",
+          "status": "on-time"
+        },
+        {
+          "studentId": "8",
+          "status": "missing"
         }
       ]
     }
