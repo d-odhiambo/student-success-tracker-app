@@ -45,7 +45,20 @@ function StudentCard({ student, number, onDelete, onUpdate }) {
           ) : (
             <button className="edit-btn" onClick={() => setIsEditing(true)}>Edit</button>
           )}
-          <button className="delete-btn" onClick={() => onDelete(student.id)}>Delete</button>
+          <button
+  className="delete-btn"
+  onClick={() => {
+    const confirmDelete = window.confirm(
+      `Are you sure you want to delete ${student.name}?`
+    );
+    if (confirmDelete) {
+      onDelete(student.id);
+    }
+  }}
+>
+  Delete
+</button>
+
         </div>
       </div>
     </li>
