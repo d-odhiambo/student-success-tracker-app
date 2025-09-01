@@ -95,6 +95,13 @@ form button:hover {
   transition: background 0.2s ease;
 }
 
+.students-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #333;
+}
+
 .edit-btn {
   background: #3498db;
   color: white;
