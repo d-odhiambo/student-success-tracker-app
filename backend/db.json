@@ -97,10 +97,10 @@
       "accountabilityScore": 87
     },
     {
-      "id": "489d",
-      "name": "Brian Muena",
-      "attendancePercent": 72,
-      "accountabilityScore": 89
+      "id": "a630",
+      "name": "Enock Achoki",
+      "attendancePercent": 73,
+      "accountabilityScore": 78
     }
   ],
   "assignments": [
@@ -122,18 +122,6 @@
       "dueDate": "2025-09-10",
       "points": 15,
       "submissions": []
-    },
-    {
-      "id": "3549",
-      "title": "Code Challenge 2",
-      "dueDate": "2025-08-31",
-      "points": 10,
-      "submissions": [
-        {
-          "studentId": "2",
-          "status": "on-time"
-        }
-      ]
     }
   ],
   "submissions": []
