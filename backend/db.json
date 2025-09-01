@@ -134,6 +134,26 @@
           "status": "on-time"
         }
       ]
+    },
+    {
+      "id": "3b97",
+      "title": "Phase 2 React Project",
+      "dueDate": "2025-08-31",
+      "points": 10,
+      "submissions": [
+        {
+          "studentId": "3",
+          "status": "on-time"
+        },
+        {
+          "studentId": "8",
+          "status": "late"
+        },
+        {
+          "studentId": "8",
+          "status": "on-time"
+        }
+      ]
     }
   ],
   "submissions": []
