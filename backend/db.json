@@ -111,7 +111,7 @@
       "points": 10,
       "submissions": [
         {
-          "studentId": 1,
+          "studentId": "1",
           "status": "on-time"
         }
       ]
@@ -122,7 +122,6 @@
       "dueDate": "2025-09-10",
       "points": 15,
       "submissions": []
-<<<<<<< HEAD
     },
     {
       "id": "3549",
@@ -155,8 +154,6 @@
           "status": "on-time"
         }
       ]
-=======
->>>>>>> master
     }
   ],
   "submissions": []
